@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shaik Khaja Shareef — Backend Engineer</title>
+<meta name="description" content="Portfolio of Shaik Khaja Shareef — Java / Spring Boot backend engineer, final-year CS student at KL University, building toward full stack." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ECEBE3;
+    --paper-tint:#E2E0D5;
+    --ink:#1E2321;
+    --ink-soft:#4B5350;
+    --rule:#C9C7BA;
+    --accent:#3E6259;
+    --accent-soft:#DCE6E1;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;}
+  a:hover, a:focus-visible{border-bottom-color:var(--accent);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  header.hero{
+    padding:72px 0 48px;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero-inner{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    flex-wrap:wrap-reverse;
+  }
+  .hero-text{flex:1 1 320px;}
+  .hero-visual{flex:0 0 220px;}
+  .hero-visual svg{width:100%;height:auto;}
+
+  h1.name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.1rem, 5vw, 3rem);
+    line-height:1.08;
+    margin:0 0 10px;
+    letter-spacing:-0.01em;
+  }
+  p.tagline{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+    max-width:34ch;
+  }
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 20px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.86rem;
+  }
+  .contact-row a{color:var(--ink);}
+  .contact-row a:hover{color:var(--accent);}
+
+  section{
+    padding:44px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  section:last-of-type{border-bottom:none;}
+
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.5rem;
+    margin:0 0 20px;
+  }
+
+  p.lede{
+    max-width:66ch;
+    color:var(--ink-soft);
+  }
+
+  /* Education timeline */
+  .timeline{position:relative;padding-left:26px;}
+  .timeline::before{
+    content:"";
+    position:absolute;left:5px;top:6px;bottom:6px;
+    width:1px;background:var(--rule);
+  }
+  .tl-item{position:relative;margin-bottom:26px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-item::before{
+    content:"";
+    position:absolute;left:-26px;top:6px;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--accent);
+  }
+  .tl-head{
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-weight:600;
+  }
+  .tl-when{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .tl-sub{color:var(--ink-soft);font-size:0.95rem;margin-top:2px;}
+
+  /* Skills */
+  .skill-groups{display:grid;grid-template-columns:1fr;gap:18px;}
+  .skill-row{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:14px;
+    align-items:baseline;
+  }
+  .skill-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    padding:4px 10px;
+    border:1px solid var(--rule);
+    border-radius:3px;
+    background:var(--paper-tint);
+  }
+
+  /* Projects */
+  .project{margin-bottom:34px;}
+  .project:last-child{margin-bottom:0;}
+  .project h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.15rem;
+    margin:0 0 6px;
+  }
+  .project ul{margin:10px 0 12px;padding-left:20px;}
+  .project li{margin-bottom:5px;color:var(--ink-soft);}
+  .project .chips{margin-top:8px;}
+
+  /* Achievements */
+  .stat-row{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:22px;}
+  .stat{min-width:120px;}
+  .stat .num{
+    font-family:'Fraunces', serif;
+    font-size:2.1rem;
+    font-weight:600;
+    color:var(--accent);
+    line-height:1;
+  }
+  .stat .label{font-size:0.85rem;color:var(--ink-soft);margin-top:4px;}
+  ul.plain{padding-left:20px;margin:0;}
+  ul.plain li{color:var(--ink-soft);margin-bottom:8px;}
+
+  /* Leadership */
+  .lead-item{margin-bottom:22px;}
+  .lead-item:last-child{margin-bottom:0;}
+  .lead-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-weight:600;}
+  .lead-when{font-family:'IBM Plex Mono', monospace;font-size:0.82rem;color:var(--ink-soft);}
+  .lead-item p{color:var(--ink-soft);margin:6px 0 0;}
+
+  /* Certifications */
+  .cert-list{display:flex;flex-direction:column;gap:10px;}
+  .cert-item{
+    display:flex;justify-content:space-between;gap:16px;
+    padding-bottom:10px;border-bottom:1px dashed var(--rule);
+    flex-wrap:wrap;
+  }
+  .cert-item:last-child{border-bottom:none;padding-bottom:0;}
+  .cert-name{font-weight:500;}
+  .cert-issuer{font-family:'IBM Plex Mono', monospace;font-size:0.82rem;color:var(--ink-soft);}
+
+  footer{
+    padding:40px 0 60px;
+    text-align:left;
+  }
+  footer h2{margin-bottom:12px;}
+  footer p{color:var(--ink-soft);max-width:50ch;}
+  .footer-links{
+    display:flex;flex-wrap:wrap;gap:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.9rem;
+    margin-top:18px;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .hero-text > *{
+      opacity:0;
+      animation:rise 0.7s ease-out forwards;
+    }
+    .hero-text .contact-row{animation-delay:0.15s;}
+    .hero-text p.tagline{animation-delay:0.08s;}
+    .hero-visual{
+      opacity:0;
+      animation:rise 0.8s ease-out 0.2s forwards;
+    }
+  }
+  @keyframes rise{
+    from{opacity:0;transform:translateY(8px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  @media (max-width:600px){
+    header.hero{padding:48px 0 36px;}
+    .skill-row{grid-template-columns:1fr;}
+    .skill-label{margin-bottom:2px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <h1 class="name">Shaik Khaja Shareef</h1>
+      <p class="tagline">Backend engineer working in Java and Spring Boot, building toward full stack. Final-year CS student, KL University.</p>
+      <div class="contact-row">
+        <a href="tel:+916302261559">+91 6302261559</a>
+        <a href="mailto:2300033328cseh@gmail.com">2300033328cseh@gmail.com</a>
+        <a href="https://www.linkedin.com/in/shaik-khaja-shareef-107a15322/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Klu-2300033328" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="200" height="46" rx="3" fill="none" stroke="#1E2321" stroke-width="1.4" stroke-dasharray="5 4" opacity="0.55"/>
+        <text x="110" y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#4B5350">Frontend</text>
+        <text x="110" y="45" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4B5350">in progress</text>
+
+        <rect x="10" y="70" width="200" height="52" rx="3" fill="#DCE6E1" stroke="#3E6259" stroke-width="1.4"/>
+        <text x="110" y="93" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1E2321" font-weight="600">Java / Spring Boot</text>
+        <text x="110" y="108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#3E6259">core</text>
+
+        <rect x="10" y="136" width="200" height="42" rx="3" fill="none" stroke="#1E2321" stroke-width="1.2"/>
+        <text x="110" y="161" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1E2321">SQL / MySQL</text>
+
+        <rect x="10" y="192" width="200" height="42" rx="3" fill="none" stroke="#1E2321" stroke-width="1.2"/>
+        <text x="110" y="217" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1E2321">AWS Cloud</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="summary">
+    <h2>Summary</h2>
+    <p class="lede">Final-year Computer Science undergraduate at KL University, CGPA 9.21. Solid grounding in Java, object-oriented programming, data structures and algorithms, DBMS, and SQL, with backend experience in Spring Boot. Comfortable picking up new stacks quickly and using AI-assisted coding tools to move faster. Looking to grow into a full stack role — starting from the frontend and expanding outward — backed by steady problem-solving, debugging, and team collaboration.</p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-head">
+          <span>KL University (Koneru Lakshmaiah Education Foundation), Vijayawada</span>
+          <span class="tl-when">2023 — Present</span>
+        </div>
+        <div class="tl-sub">B.Tech in Computer Science and Engineering · CGPA 9.21</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head">
+          <span>Narayana Junior College, Nellore</span>
+          <span class="tl-when">2021 — 2023</span>
+        </div>
+        <div class="tl-sub">Intermediate (MPC) · 941 / 1000</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head">
+          <span>Ratnam High School, Nellore</span>
+          <span class="tl-when">2021</span>
+        </div>
+        <div class="tl-sub">10th Grade · 598 / 600</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-groups">
+      <div class="skill-row">
+        <div class="skill-label">Languages</div>
+        <div class="chips"><span class="chip">Java</span><span class="chip">C</span><span class="chip">Python</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Backend</div>
+        <div class="chips"><span class="chip">Spring Boot</span><span class="chip">REST APIs</span><span class="chip">OOP</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Core CS</div>
+        <div class="chips"><span class="chip">Data Structures</span><span class="chip">Algorithms</span><span class="chip">DBMS</span><span class="chip">Operating Systems</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Database</div>
+        <div class="chips"><span class="chip">SQL</span><span class="chip">MySQL</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Cloud</div>
+        <div class="chips"><span class="chip">AWS Fundamentals</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Tools</div>
+        <div class="chips"><span class="chip">Git</span><span class="chip">VS Code</span><span class="chip">IntelliJ IDEA</span><span class="chip">Eclipse</span><span class="chip">NetBeans</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>Online Job Portal</h3>
+      <ul>
+        <li>Spring Boot backend connecting job seekers and recruiters through a structured job portal system.</li>
+        <li>Candidate and recruiter roles built with OOP principles, using modular and maintainable Java classes.</li>
+        <li>SQL database structures designed to manage users, job postings, and application records efficiently.</li>
+      </ul>
+      <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">SQL</span><span class="chip">OOP</span></div>
+    </div>
+
+    <div class="project">
+      <h3>Lane Detection and Road Analysis System</h3>
+      <ul>
+        <li>System that analyzes road video footage and identifies lane boundaries from individual frames.</li>
+        <li>Video and frame processing techniques implemented to detect and track lane markings in real time.</li>
+        <li>End-to-end workflow designed from video input and frame processing through to lane detection output.</li>
+        <li>Applied to an intelligent transportation use case, improving road and driving analysis.</li>
+      </ul>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Video Processing</span><span class="chip">Real-time Detection</span></div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <h2>Key achievements</h2>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="num">200+</div>
+        <div class="label">day streak, CodeChef</div>
+      </div>
+      <div class="stat">
+        <div class="num">100+</div>
+        <div class="label">problems solved</div>
+      </div>
+    </div>
+    <ul class="plain">
+      <li>Built a steady competitive programming habit on CodeChef, strengthening data structures &amp; algorithms and general debugging ability.</li>
+      <li>Led and contributed to multiple academic and software projects, gaining hands-on experience in problem-solving, teamwork, and end-to-end delivery.</li>
+    </ul>
+  </section>
+
+  <section id="leadership">
+    <h2>Academic experience &amp; leadership</h2>
+    <div class="lead-item">
+      <div class="lead-head">
+        <span>Team Lead — Code Night Hackathon</span>
+        <span class="lead-when">2025</span>
+      </div>
+      <p>Led a team through the hackathon, coordinating task allocation, problem-solving, and collaboration; guided development and presentation of the solution within the event timeline.</p>
+    </div>
+    <div class="lead-item">
+      <div class="lead-head">
+        <span>Event Host &amp; Coordinator</span>
+        <span class="lead-when">2025</span>
+      </div>
+      <p>Hosted a college event with 4,000+ attendees, drawing on public speaking, communication, and crowd management skills.</p>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="cert-list">
+      <div class="cert-item"><span class="cert-name">Programming in Java</span><span class="cert-issuer">NPTEL</span></div>
+      <div class="cert-item"><span class="cert-name">AWS Cloud Practitioner</span><span class="cert-issuer">AWS</span></div>
+      <div class="cert-item"><span class="cert-name">Scrum Fundamentals</span><span class="cert-issuer">Automation Anywhere</span></div>
+      <div class="cert-item"><span class="cert-name">Cambridge Linguaskill</span><span class="cert-issuer">Cambridge</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <h2>Get in touch</h2>
+  <p>Open to full stack, backend, and software engineering roles at product companies and GCCs. Happy to walk through any of the projects above in more detail.</p>
+  <div class="footer-links">
+    <a href="mailto:2300033328cseh@gmail.com">Email</a>
+    <a href="tel:+916302261559">Call</a>
+    <a href="https://www.linkedin.com/in/shaik-khaja-shareef-107a15322/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/Klu-2300033328" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+</body>
+</html>
